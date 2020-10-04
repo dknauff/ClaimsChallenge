@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claims_Challenge", "Claims_Challenge\Claims_Challenge.csproj", "{75A600CD-1764-475F-BDC6-B442F5708CE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claims_Challenge_Console", "Claims_Challenge\Claims_Challenge_Console.csproj", "{75A600CD-1764-475F-BDC6-B442F5708CE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claims_Challenge_ClassLibrary", "Claims_Challenge_ClassLibrary\Claims_Challenge_ClassLibrary.csproj", "{8DAD4A9C-A5E8-4803-B0C9-14FC310B40B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claims_Project_Tests", "Claims_Project_Tests\Claims_Project_Tests.csproj", "{F7AFD26A-1678-4458-A544-91517C55BA60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{75A600CD-1764-475F-BDC6-B442F5708CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75A600CD-1764-475F-BDC6-B442F5708CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75A600CD-1764-475F-BDC6-B442F5708CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DAD4A9C-A5E8-4803-B0C9-14FC310B40B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DAD4A9C-A5E8-4803-B0C9-14FC310B40B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DAD4A9C-A5E8-4803-B0C9-14FC310B40B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DAD4A9C-A5E8-4803-B0C9-14FC310B40B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7AFD26A-1678-4458-A544-91517C55BA60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7AFD26A-1678-4458-A544-91517C55BA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7AFD26A-1678-4458-A544-91517C55BA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7AFD26A-1678-4458-A544-91517C55BA60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
