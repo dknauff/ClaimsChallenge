@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,18 @@ namespace Claims_Challenge_ClassLibrary
             return _claimDirectory;
         }
 
-        //Claim Queue of some sort + method
-        
+        protected readonly Queue<ClaimClass> _claimQueue = new Queue<ClaimClass>();
+
+        public bool AddClaimToQueue(ClaimClass claim)
+        {
+            int startingCount = _claimQueue.Count;
+            _claimQueue.Enqueue(claim);
+            bool wasAdded = (_claimQueue.Count > startingCount) ? true : false;
+            return wasAdded;
+        }
+        public Queue<ClaimClass> GetClaimQueue()
+        {
+            return _claimQueue;
+        }
     }
 }

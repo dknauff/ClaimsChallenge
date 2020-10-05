@@ -32,5 +32,18 @@ namespace Claims_Project_Tests
             bool directoryHasClaims = listOfClaims.Contains(testClaim);
             Assert.IsTrue(directoryHasClaims);
         }
+
+        [TestMethod]
+        public void AddClaimToQueue_ShouldReturnCorrectCollection()
+        {
+            ClaimClass testclaim = new ClaimClass();
+            ClaimRepository repository = new ClaimRepository();
+            repository.AddClaimToQueue(testclaim);
+
+            Queue<ClaimClass> queueOfClaims = repository.GetClaimQueue();
+
+            bool queueHasClaims = queueOfClaims.Contains(testclaim);
+            Assert.IsTrue(queueHasClaims);
+        }
     }
 }
