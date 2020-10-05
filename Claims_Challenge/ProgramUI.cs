@@ -55,7 +55,7 @@ namespace Claims_Challenge
         private void SeeAllClaims()
         {
             Console.Clear();
-            List<ClaimClass> claimList = _claimRepository.GetAllClaims();
+            Queue<ClaimClass> claimList = _claimRepository.GetAllClaims();
 
             Console.WriteLine("ClaimID | Type   |   Description  |  Amount | DateOfIncident | DateOfClaim | IsValid \n");
             foreach(ClaimClass claim in claimList)
@@ -136,10 +136,8 @@ namespace Claims_Challenge
         private void NextClaim()
         {
             Console.Clear();
-            Queue<ClaimClass> claimQueue = new Queue<ClaimClass>();
+            ClaimClass claim = _claimRepository.PeekQueue();
 
-            foreach (ClaimClass claim in claimQueue)
-            {
                 Console.WriteLine($"Here are the details for this claim \n" +
                 $"{claim.ClaimID} \n" +
                 $"{claim.ClaimType} \n" +
@@ -152,17 +150,18 @@ namespace Claims_Challenge
             string userInput = Console.ReadLine();
                 if (userInput.ToLower() == "y")
                 {
-                    claimQueue.Dequeue();
+                    _claimRepository.DeQueueClaim();
+                    Console.Clear();
                     Console.WriteLine("The first claim has been pulled off the top of the queue. \n" +
                         "Press any key to return to the main menu...");
                     Console.ReadKey();
                 }
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("Press any key to return to the main menu");
                     Console.ReadKey();
                 }
-            }
         }
         private void SeedClaims()
         {
@@ -173,10 +172,6 @@ namespace Claims_Challenge
             _claimRepository.AddClaimToDirectory(claimOne);
             _claimRepository.AddClaimToDirectory(claimTwo);
             _claimRepository.AddClaimToDirectory(claimThree);
-
-            _claimRepository.AddClaimToQueue(claimOne);
-            _claimRepository.AddClaimToQueue(claimTwo);
-            _claimRepository.AddClaimToQueue(claimThree);
         }
     }
 }

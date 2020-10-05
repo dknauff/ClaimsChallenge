@@ -27,23 +27,17 @@ namespace Claims_Project_Tests
             ClaimRepository repository = new ClaimRepository();
             repository.AddClaimToDirectory(testClaim);
 
-            List<ClaimClass> listOfClaims = repository.GetAllClaims();
+            Queue<ClaimClass> listOfClaims = repository.GetAllClaims();
 
             bool directoryHasClaims = listOfClaims.Contains(testClaim);
             Assert.IsTrue(directoryHasClaims);
         }
 
         [TestMethod]
-        public void AddClaimToQueue_ShouldReturnCorrectCollection()
+        public void DeQueueClaim_ShouldDeQueueClaim()
         {
-            ClaimClass testclaim = new ClaimClass();
-            ClaimRepository repository = new ClaimRepository();
-            repository.AddClaimToQueue(testclaim);
+            ClaimClass claimClass = new ClaimClass();
 
-            Queue<ClaimClass> queueOfClaims = repository.GetClaimQueue();
-
-            bool queueHasClaims = queueOfClaims.Contains(testclaim);
-            Assert.IsTrue(queueHasClaims);
         }
     }
 }

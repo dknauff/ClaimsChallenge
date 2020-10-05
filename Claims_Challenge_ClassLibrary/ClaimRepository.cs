@@ -10,33 +10,28 @@ namespace Claims_Challenge_ClassLibrary
 {
     public class ClaimRepository
     {
-        protected readonly List<ClaimClass> _claimDirectory = new List<ClaimClass>();
+        protected readonly Queue<ClaimClass> _claimDirectory = new Queue<ClaimClass>();
 
         public bool AddClaimToDirectory(ClaimClass claim)
         {
             int startingCount = _claimDirectory.Count;
-            _claimDirectory.Add(claim);
+            _claimDirectory.Enqueue(claim);
             bool wasAdded = (_claimDirectory.Count > startingCount) ? true : false;
             return wasAdded;
         }
 
-        public List<ClaimClass> GetAllClaims()
+        public Queue<ClaimClass> GetAllClaims()
         {
             return _claimDirectory;
         }
 
-        protected readonly Queue<ClaimClass> _claimQueue = new Queue<ClaimClass>();
-
-        public bool AddClaimToQueue(ClaimClass claim)
+        public ClaimClass PeekQueue()
         {
-            int startingCount = _claimQueue.Count;
-            _claimQueue.Enqueue(claim);
-            bool wasAdded = (_claimQueue.Count > startingCount) ? true : false;
-            return wasAdded;
+            return _claimDirectory.Peek();
         }
-        public Queue<ClaimClass> GetClaimQueue()
+        public ClaimClass DeQueueClaim()
         {
-            return _claimQueue;
+            return _claimDirectory.Dequeue();
         }
     }
 }
