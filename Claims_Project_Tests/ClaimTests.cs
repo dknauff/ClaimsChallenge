@@ -33,11 +33,21 @@ namespace Claims_Project_Tests
             Assert.IsTrue(directoryHasClaims);
         }
 
-        [TestMethod]
-        public void DeQueueClaim_ShouldDeQueueClaim()
+        private ClaimRepository _repo;
+        private ClaimClass _claim;
+        [TestInitialize]
+        public void Arrange()
         {
-            ClaimClass claimClass = new ClaimClass();
+            _repo = new ClaimRepository();
+            _claim = new ClaimClass(1, ClaimType.Car, "rough times", 10000m, "2/22/22", "3/33/33", false);
+            _repo.AddClaimToDirectory(_claim);
+        }
+        [TestMethod]
+        public void PeakClaim_ShouldPeekClaim()
+        {
+            ClaimClass claim = _repo.PeekQueue();
 
+            Assert.AreEqual(_claim, claim);
         }
     }
 }
